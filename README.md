@@ -1,1 +1,1 @@
-# DMWT_24WS_Gruppe02
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
