@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/*import { useState } from 'react';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
@@ -47,5 +47,5 @@ export default function Gallery() {
       </p>
     </>
   );
-}
+}*/
 //by {sculpture.artist}
