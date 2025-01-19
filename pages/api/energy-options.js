@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       const { rows } = await pool.query('SELECT * FROM "Energy"');
       // Clean up the data to make it more readable
       const formattedData = rows.map(option => ({
-        id: option.id,
+        urls: option.URLs,
         energyType: option.EnergyType,
         provider: option.Provider,
         location: option.Location,

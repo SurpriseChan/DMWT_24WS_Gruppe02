@@ -36,7 +36,7 @@ function StartPage() {
   }, []);
 
   return (
-    <div className="home-container">
+    <div className="start-page">
       <h1>Green Energy Options</h1>
       <div className="energy-options-container">
         {energyOptions.map((option, index) => (

@@ -17,7 +17,7 @@ function ApiPage() {
   };
 
   return (
-    <div>
+    <div className='Second-Page'>
       <h1>API Seite</h1>
       {data && data.length > 0 ? (  // Prüft ob data frei ist und ob es sachen hat
         <div>
