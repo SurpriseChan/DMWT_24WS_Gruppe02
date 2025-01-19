@@ -1,7 +1,7 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import EnergyOptionCard from '../components/EnergyOptionCard';
+import React from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import EnergyOptionCard from "../components/EnergyOptionCard";
 
 /*function StartPage() {
   const router = useRouter();   //Macht das man Seite Wechseln Kann
@@ -21,28 +21,25 @@ import EnergyOptionCard from '../components/EnergyOptionCard';
   );
 }*/
 function StartPage() {
-  const [energyOptions, setEnergyOptions] = useState([]);
-
-  useEffect(() => {
-    async function fetchEnergyOptions() {
-      const res = await fetch('/api/energy-options');
-      const data = await res.json();
-      if (data.success) {
-        setEnergyOptions(data.data);
-      }
-    }
-
-    fetchEnergyOptions();
-  }, []);
+  const router = useRouter();
+  const handleNavigate = () => {
+    // Geht zur Zweiten Seite
+    router.push("/2ndPage");
+  };
 
   return (
     <div className="start-page">
-      <h1>Green Energy Options</h1>
-      <div className="energy-options-container">
-        {energyOptions.map((option, index) => (
-          <EnergyOptionCard key={index} {...option} />
-        ))}
-      </div>
+      <header className="header">
+        <div className="header-text"></div>
+        <div className="header-links">
+          <a href="/">Home Page</a>
+          <a href="/2ndPage">Solar Energy</a>
+          <a href="/3rdPage">Wind Energy</a>
+          <a href="/4thPage">Hydro Energy</a>
+          <a href="/SearchPage">Search Page</a>
+        </div>
+      </header>
+      <button onClick={handleNavigate} className="next-button"></button>
     </div>
   );
 }

@@ -2,41 +2,147 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+  height: 100%; /* Ensure the body takes the full height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.start-page
-{
+@media (max-width: 768px) {
+  .header-text {
+    font-size: 1.2rem; /* Reduce font size */
+  }
+  .header-links {
+    gap: 10px; /* Reduce spacing between links */
+  }
+  .header {
+    height: 80px; /* Reduce header height */
+  }
+}
+
+.start-page,
+.Second-Page,
+.search-page,
+.fourth-page,
+.fifth-page,
+.third-Page {
   overflow: hidden;
   margin: 0;
-  height: 100vh;
+  height: 100vh; /* Use full viewport height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-page {
   background-image: url(../components/StartPageimg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-.Second-Page
-{
-  overflow: hidden;
-  margin: 0;
-  height: 100vh;
+.Second-Page {
   background-image: url(../components/Secondimg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+
+.third-Page {
+  background-image: url(../components/Wind.png);
+}
+
+.fourth-page {
+  background-image: url(../components/Hydro.png);
+}
+
+.fifth-page {
+  background-image: url(../components/Hydrotwo.png);
+}
+
+.search-page {
+  background-color: #bbbbbb;
+}
+
+.solair-side-img {
+  position: fixed;
+  top: 20%; /* Initial position relative to window size */
+  left: 5%; /* Initial position relative to window size */
+  transition: all 1s ease; /* Smooth transition */
+}
+
+.solair-side-img.animate {
+  top: 50%; /* New position relative to window size */
+  left: calc(100% - 30%); /* Ensure it does not go beyond the window */
+}
+
+.solair-side-img img {
+  content: url(../components/Solair_side.png);
+  max-width: 30%;
+  height: auto;
+  transform: scaleX(-1); /* Flip horizontally */
+}
+
+.solair-side-img.animate img {
+  transform: rotate(55deg) scaleX(1); /* Rotate and flip horizontally */
+}
+
+.speech-bubble-2-container {
+  position: relative;
+  top: 0; /* Position relative to the image */
+  left: 0; /* Position relative to the image */
+  /*transform: none !important; /* Prevent rotation and flipping */
+}
+
+.speech-bubble-2 {
+  position: relative;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5); /* Transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  color: #000; /* Ensure text is not transparent */
+}
+
+.speech-bubble-2::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.5) transparent; /* Transparent background */
+}
+
+.speech-bubble-container {
+  position: absolute;
+  top: 10%; /* Initial position relative to the image */
+  left: 30%; /* Initial position relative to the image */
+  transition: all 1s ease; /* Smooth transition */
+}
+
+.speech-bubble-container.animate {
+  top: 40%; /* New position relative to the image */
+  left: calc(100% - 320px); /* Ensure it does not go beyond the window */
+}
+
+.speech-bubble {
+  width: 300px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
 }
 
 a {
@@ -56,8 +162,8 @@ img {
 .energy-options-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  /* Center items horizontally */
-  gap: 20px;  /* Space between cards */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Space between cards */
   margin-top: 20px;
 }
 
@@ -67,8 +173,8 @@ img {
   padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;  /* Makes it look like a button */
-  width: 250px;  /* Set width for each card */
+  cursor: pointer; /* Makes it look like a button */
+  width: 250px; /* Set width for each card */
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -86,4 +192,58 @@ img {
 .energy-option-card p {
   font-size: 1rem;
   color: rgb(3, 3, 3);
+}
+
+.next-button {
+  background: url(../components/Next-Button.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px; /* Use the image's standard width */
+  height: 40px; /* Use the image's standard height */
+  border: none; /* Remove default button border */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.header {
+  background-image: url(../components/Navigation-bar.png);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keep text and links on opposite ends */
+  padding: 10px 5%; /* Use consistent padding */
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%; /* Full width */
+  height: auto; /* Fixed height */
+  z-index: 10; /* Keep header above other elements */
+  position: fixed; /* Fix the header to the top */
+  top: 0;
+  left: 0;
+}
+
+.header-text {
+  font-size: 1.5rem; /* Consistent font size */
+  color: #333;
+  white-space: nowrap; /* Prevent text from wrapping */
+  flex-shrink: 0; /* Prevent shrinking of text when resizing */
+}
+
+.header-links {
+  display: flex;
+  gap: 15px;
+  align-items: center; /* Keep links vertically aligned in the center */
+  flex-shrink: 0; /* Prevent shrinking of links when resizing */
+}
+
+.header-links a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap; /* Prevent wrapping of links */
+}
+
+.header-links a:hover {
+  text-decoration: underline;
 }
